@@ -2,13 +2,17 @@
 //  ViewController.swift
 //  ContainerViewInsideScroll
 //
-//  Created by Talha on 11.05.2017.
+//  Created by swift on 11.05.2017.
 //  Copyright © 2017 developer. All rights reserved.
 //
 
 import UIKit
 
 class ViewController: UIViewController {
+    
+    
+    var center : centerViewController!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +23,39 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "center"{
+            
+            center = segue.destination as! centerViewController
+            
+            
+        }
+        
+        
+    }
+    
+    
+    
+    
+    @IBAction func goOne(_ sender: UIButton) {
+        
+        if center != nil {
+            center!.segueIdentifierReceivedFromParent("one")
+        }
+    }
+    
+    
+    
+    
+    @IBAction func goTwo(_ sender: UIButton) {
+        
+        if center != nil {
+            center!.segueIdentifierReceivedFromParent("two")
+        }
+    }
+    
 
 
 }
